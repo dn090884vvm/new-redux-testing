@@ -9,6 +9,8 @@ import { filtered } from 'redux/contacts/contactsReducersSlice';
 export const App = () => {
   const contact = useSelector(state => state.xxx);
   const filter = useSelector(state => state.yyy);
+
+  const gettedContacts = contact;
   console.log(filter);
   console.log(contact);
 
@@ -38,6 +40,13 @@ export const App = () => {
     dispatch(filtered(e.target.value));
   };
 
+  function filteredElements() {
+    const normalizedFilter = filter.toLowerCase();
+    return gettedContacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  }
+
   return (
     <>
       <input
@@ -56,7 +65,7 @@ export const App = () => {
       </div>
 
       <ul>
-        {contact.map(element => (
+        {filteredElements().map(element => (
           <li key={element.id}>
             <p>{element.name}</p>
             <p>{element.phone}</p>
