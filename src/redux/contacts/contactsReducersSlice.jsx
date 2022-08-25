@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const contactSlice = createSlice({
-  name: 'contact', //eto imya tolko sdlya actions contact/addcontact contact/deletecontact  type
+  name: 'contact', //eto imya tolko sdlya actions contact/addcontact contact/deletecontact  type   ili dlya vizualnogo svyazyvaniya imeni svoistva v state  vmesto xxx, yyy i t.d
   initialState: [],
   reducers: {
     addContact: (state, action) => {
